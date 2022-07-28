@@ -1,6 +1,6 @@
 
 ## About
-REST API for ielts-project  application with DRF. Using it you can create collection
+REST API for ielts-project  application with DRF. Using it with you can create collection
 and user can check his answers
 
 
@@ -27,18 +27,20 @@ Application is deployed to docker, `Dockerfile` for the DRF app and `docker-comp
 
 User response structure: 
 ```
-{
-    "id": 1,
+{    
     "username": "test",
     "email": "test@test.com",
     "password": "pbkdf2_sha256$320000$vfadbgvtfdgdfgdfg1pdM6w$Yayz+gfdgfdgdfgfdgfdgdfgsc8BMfpcBXxCsVBr7xI="
 }
 ```
 
-| Api method          | Description             | Requires                                    | Response |
-| -----------         | -----------             |---------------------------------------------| ----------- |
-| POST /api/register       | Registers new user       | `username`, `email`, `password`,`password2` | Information about registered user
-| POST /api/login          | Login point              | `username`, `password`                      | Access and refresh tokens
+| Api method                              | Description        | Requires                                     | Response |
+|-----------------------------------------|--------------------|----------------------------------------------| ----------- |
+| POST /auth/register/                    | Registers new user | `username`, `email`, `password`,`password2`  | Information about registered user
+| POST /auth/token/                       | Login point        | `username`, `password`                       | Access and refresh tokens
+| POST /auth/token/refresh/               | Login point        | `refresh-token`                              | Access and refresh tokens
+| PUT, PATCH /auth/change_password/pk:id/ | changing password  | `old_password`,`password`, `password2`       | changing password
+| PUT, PATCH /auth/update_profile/pk:id/  | profile_update     | `username`,`email`, `last_name`,`first_name` | updating profile
 
 ## Collection Apis
 
