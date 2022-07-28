@@ -1,6 +1,6 @@
 
 ## About
-REST API for ielts-project  application with DRF. Using it with you can create collection
+REST API for ielts-project  application with DRF. Using it you can create collection
 and user can check his answers
 
 
